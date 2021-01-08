@@ -1,0 +1,4 @@
+<div class="field">
+      <%= f.label(:prefecture_id, User.human_attribute_name(:prefecture_id)) %>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, selected: @search_params[:prefecture_id], include_blank: t('helpers.select.include_blank')) %>
+    </div>
