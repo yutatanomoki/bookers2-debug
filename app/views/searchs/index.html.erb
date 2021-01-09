@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9">
+            <% if @select == 1 %>
+                <%= render 'books/index',books: @books %>
+            <% else %>
+                <%= render 'users/index',users: @users %>
+            <% end %>
+        </div>
+        
+    </div>
+</div>
