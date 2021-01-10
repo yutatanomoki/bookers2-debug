@@ -1,12 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-9">
-            <% if @select == 1 %>
-                <%= render 'books/index',books: @books %>
-            <% else %>
-                <%= render 'users/index',users: @users %>
-            <% end %>
+        <div class="col-12 clearfix">
+            <div class="float-left"></div>
+                <% if @select == 1 %>
+                    <h2><%=  'Books search for ' + @word %></h2>
+                    <%= render 'books/index',books: @books %>
+                <% else %>
+                    <h2><%=  'Users search for ' + @word %></h2>
+                    <%= render 'users/index',users: @users %>
+                <% end %>
+            </div>
         </div>
-        
     </div>
 </div>
