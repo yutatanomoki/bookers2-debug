@@ -17,6 +17,18 @@ class User < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :target_user
   has_many :followers, through: :passive_relationships, source: :user
   
+  include JpPrefecture
+  jp_prefecture :prefecture_code  
+
+  
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+  
+  def prefecture_name=(prefecture_name)
+  self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
+  
   def follow(other_user)
     unless self == other_user
       self.active_relationships.find_or_create_by(target_user_id: other_user.id)

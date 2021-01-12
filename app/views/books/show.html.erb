@@ -32,6 +32,12 @@
         <p>コメント件数：<%= @book.book_comments.count %></p>
         <%= render 'book_comments/comment', book: @book, book_comment: @book_comment %>
       </div>
+      <div class="new-comment">
+          <%= form_with(model:[@book, @book_comment], remote: true) do |f| %>
+              <%= f.text_area :comment,placeholder: "コメントをここに" %>
+              <%= f.submit "送信する" %>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
