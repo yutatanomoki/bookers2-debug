@@ -28,6 +28,20 @@
           <% end %>
         </tr>
       </table>
+      <div class="card-content">
+            <div class="content average-score">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= @ramen_shop.review_score_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+                <%= @ramen_shop.avg_score %>点（<%= @ramen_shop.reviews.count %>件のレビュー）
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render 'reviews/form', review: @review, book: @book %>
+      </div>
       <div class="comments">
         <p>コメント件数：<%= @book.book_comments.count %></p>
         <%= render 'book_comments/comment', book: @book, book_comment: @book_comment %>
